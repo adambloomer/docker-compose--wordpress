@@ -15,9 +15,10 @@ The following file structure can be used, however you can tailor this to your pr
  - project_folder
    - www (wordpress install)
    - dev (all our precompiled code)
-   docker-compose.yml
-   client_max_body_size.conf
-   uploads.ini
+   - docker-configs
+      - client_max_body_size.conf
+      - uploads.ini
+  docker-compose.yml
 ```
 Virtual Hosts
 ------------------
