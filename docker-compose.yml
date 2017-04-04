@@ -1,0 +1,36 @@
+web:
+    image: wordpress
+    links:
+     - mysql
+    environment:
+       WORDPRESS_DB_PASSWORD: y0uR_R4nd0m_Pa55word
+       VIRTUAL_HOST: virtual-host-name.dev
+    ports:
+     - "127.0.0.1:8081:80"
+    working_dir: /var/www/html
+    volumes:
+     - ./www:/var/www/html/
+     - ./docker-configs/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+mysql:
+    image: mysql:5.7
+    ports:
+     - "127.0.0.1:3306:3306"
+    environment:
+     MYSQL_ROOT_PASSWORD: y0uR_R4nd0m_Pa55word
+     MYSQL_DATABASE: your-database-name
+phpmyadmin:
+  image: corbinu/docker-phpmyadmin
+  links:
+    - mysql
+  ports:
+    - "127.0.0.1:8080:80"
+  environment:
+    MYSQL_USERNAME: root
+    MYSQL_ROOT_PASSWORD: y0uR_R4nd0m_Pa55word
+nginx:
+    image: jwilder/nginx-proxy
+    ports:
+     - 80:80
+    volumes:
+     - /var/run/docker.sock:/tmp/docker.sock:ro
+     - ./docker-configs/client_max_body_size.conf:/etc/nginx/conf.d/*.conf
