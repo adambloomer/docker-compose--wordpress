@@ -5,7 +5,7 @@ The files contained within this repo will allow you to spin up Wordpress via doc
 
 If you already have a Wordpress site that you want to convert to the docker server method then you either need to move your wordpress install to a `www` folder or edit the docker-compose.yml file to change the folder mappings.
 
-I've purposefully not put in a build process (or populated the dev folder with anything) as this is literally meant to be purely for docker and not a Wordpress build boilerplate as we have one of those already.
+I've purposefully not put in a build process as this is literally meant to be purely for serving via docker and not a Wordpress boilerplate.
 
 file structure
 ------------------
@@ -14,7 +14,7 @@ The following file structure can be used, however you can tailor this to your pr
 ```
  - project_folder
    - www (wordpress install)
-   - dev (all our precompiled code)
+   - dev (all our uncompiled code)
    - docker-configs
       - client_max_body_size.conf
       - uploads.ini
