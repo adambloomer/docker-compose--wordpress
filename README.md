@@ -1,5 +1,5 @@
-Docker-compose Wordpress
-=======================
+Docker-compose for Wordpress
+============================
 
 The files contained within this repo will allow you to spin up Wordpress via docker-compose with NGINX, SQL & PHP servers, a phpMyAdmin GUI (if you want it) and topping it all off nicely with a virtual host alias. The first time you run `$ docker-compose up` this will install wordpress in your `www` directory if you haven't already got a pre-existing intallation. It will also automatically populate your `wp-config.php` with the login information for your database based on the `docker-compose.yml` settings you specify. It will take a while for the containers all to boot and become in sync. Along the way you'll get a fair few errors and warnings but be patient and it will sort itself out. 
 
